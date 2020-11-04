@@ -4,10 +4,14 @@ metadata:
   name: kubeslack
   namespace: default
 spec:
+  serviceAccountName: kubeslack
   containers:
   - image: grove/kubeslack
     imagePullPolicy: Always
     name: kubeslack
+    env:
+    - name: SUBSCRIPTION_ID
+      value: 05ed5d90-7ea9-4b9c-866c-e8d1d089343d
     volumeMounts:
     - name: secret-volume
       mountPath: /root
